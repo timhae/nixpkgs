@@ -5,7 +5,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  name    = "xmage";
+  name    = "xmage_client";
   version = "1.4.45";
 
   src = fetchurl {
@@ -24,14 +24,14 @@ stdenv.mkDerivation rec {
     cp -rv ./* $out
 
     cat << EOF > $out/bin/xmage_client
-exec ${jdk8}/bin/java -Xms256m -Xmx512m -XX:MaxPermSize=384m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar $out/lib/mage-client-1.4.45.jar
+exec ${jdk8}/bin/java -Xms1g -Xmx4g -XX:MaxPermSize=384m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar $out/lib/mage-client-1.4.45.jar
 EOF
 
     chmod +x $out/bin/xmage_client
   '';
 
   meta = with stdenv.lib; {
-    description = "Magic Another Game Engine";
+    description = "Magic Another Game Engine client";
     license = licenses.mit;
     maintainers = with maintainers; [ matthiasbeyer ];
     homepage = "http://xmage.de/";
