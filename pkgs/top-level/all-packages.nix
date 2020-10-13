@@ -8331,7 +8331,8 @@ in
   xfsprogs = callPackage ../tools/filesystems/xfsprogs { };
   libxfs = xfsprogs.dev;
 
-  xmage = callPackage ../games/xmage { };
+  xmage_client = callPackage ../games/xmage/client.nix { };
+  xmage_server = callPackage ../games/xmage/server.nix { };
 
   xml2 = callPackage ../tools/text/xml/xml2 { };
 
