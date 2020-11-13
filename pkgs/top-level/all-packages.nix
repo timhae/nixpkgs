@@ -194,7 +194,7 @@ in
 
   droidcam = callPackage ../os-specific/linux/droidcam { };
 
-  v4l2loopback-dc = callPackage ../os-specific/linux/v4l2loopback-dc { inherit droidcam; };
+  v4l2loopback-dc = linuxPackages.callPackage ../os-specific/linux/v4l2loopback-dc { inherit droidcam; };
 
   buildMaven = callPackage ../build-support/build-maven.nix {};
 
