@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     owner = "aramg";
     repo = "droidcam";
     rev = "v${version}";
-    sha256 = "tIb7wqzAjSHoT9169NiUO+z6w5DrJVYvkQ3OxDqI1DA=";
+    sha256 = "1d9qpnmqa3pfwsrpjnxdz76ipk4w37bbxyrazchh4vslnfc886fx";
   };
 
   nativeBuildInputs = [

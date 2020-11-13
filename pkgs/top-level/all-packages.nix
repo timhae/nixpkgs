@@ -192,6 +192,10 @@ in
   buildFHSUserEnvChroot = callPackage ../build-support/build-fhs-userenv { };
   buildFHSUserEnvBubblewrap = callPackage ../build-support/build-fhs-userenv-bubblewrap { };
 
+  droidcam = callPackage ../os-specific/linux/droidcam { };
+
+  v4l2loopback-dc = callPackage ../os-specific/linux/v4l2loopback-dc { inherit droidcam; };
+
   buildMaven = callPackage ../build-support/build-maven.nix {};
 
   castget = callPackage ../applications/networking/feedreaders/castget { };
@@ -19943,10 +19947,6 @@ in
     ena = callPackage ../os-specific/linux/ena {};
 
     v4l2loopback = callPackage ../os-specific/linux/v4l2loopback { };
-
-    droidcam = callPackage ../os-specific/linux/droidcam { };
-
-    v4l2loopback-dc = callPackage ../os-specific/linux/v4l2loopback-dc { inherit droidcam; };
 
     lttng-modules = callPackage ../os-specific/linux/lttng-modules { };
 
