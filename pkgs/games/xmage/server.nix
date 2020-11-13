@@ -8,10 +8,7 @@ stdenv.mkDerivation rec {
   name    = "xmage_server";
   version = "1.4.45";
 
-  src = fetchurl {
-    url    = "haering.dev/mage-server.zip";
-    sha256 = "1kaabkbb689xynijwp1hbv16r7vvnmc7s6yrgkibfnk836i1dwhk";
-  };
+  src = /var/www/haering.dev/mage-server.zip;
 
   preferLocalBuild = true;
 
