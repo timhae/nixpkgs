@@ -1333,6 +1333,12 @@ in
 
   anbox = callPackage ../os-specific/linux/anbox { };
 
+  pocl = callPackage ../os-specific/linux/pocl {
+    clangStdenv = llvmPackages_10.stdenv;
+    clang-unwrapped = llvmPackages_10.clang-unwrapped;
+    llvm = llvm_10;
+  };
+
   androidenv = callPackage ../development/mobile/androidenv {
     pkgs_i686 = pkgsi686Linux;
   };
