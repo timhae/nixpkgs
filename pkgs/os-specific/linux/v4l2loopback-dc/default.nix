@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
   preBuild = ''
-    cd linux/v4l2loopback
+    cd v4l2loopback
   '';
 
   makeFlags = [

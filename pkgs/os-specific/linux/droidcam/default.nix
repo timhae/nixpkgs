@@ -5,13 +5,13 @@
 
 stdenv.mkDerivation rec {
   pname = "droidcam";
-  version = "1.6";
+  version = "1.7";
 
   src = fetchFromGitHub {
     owner = "aramg";
     repo = "droidcam";
     rev = "v${version}";
-    sha256 = "1d9qpnmqa3pfwsrpjnxdz76ipk4w37bbxyrazchh4vslnfc886fx";
+    sha256 = "1dzl65daymycrfwfd32p55f6ri1izia2vcmpmsba701pd52s52lw";
   };
 
   nativeBuildInputs = [
@@ -29,11 +29,10 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = ''
-    substituteInPlace linux/src/droidcam.c --replace "/opt/droidcam-icon.png" "$out/share/icons/hicolor/droidcam.png"
+    substituteInPlace src/droidcam.c --replace "/opt/droidcam-icon.png" "$out/share/icons/hicolor/droidcam.png"
   '';
 
   preBuild = ''
-    cd linux
     makeFlagsArray+=("JPEG=$(pkg-config --libs --cflags libturbojpeg)")
   '';
 
