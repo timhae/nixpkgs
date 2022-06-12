@@ -1,6 +1,7 @@
 { lib
 , stdenv
 , maven
+, protobuf
 }:
 
 { src
@@ -23,7 +24,7 @@ stdenv.mkDerivation (rec {
     inherit src;
 
     buildInputs = [
-      maven
+      maven protobuf
     ];
 
     buildPhase = ''
