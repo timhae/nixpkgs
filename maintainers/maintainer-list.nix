@@ -15401,6 +15401,12 @@
     github = "YisuiDenghua";
     githubId = 102890144;
   };
+  eliandoran = {
+    email = "contact@eliandoran.me";
+    name = "Elian Doran";
+    github = "eliandoran";
+    githubId = 21236836;
+  };
   macalinao = {
     email = "me@ianm.com";
     name = "Ian Macalinao";
