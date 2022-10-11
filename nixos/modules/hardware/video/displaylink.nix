@@ -27,6 +27,7 @@ in
         MatchDriver "evdi"
         Driver      "modesetting"
         Option      "AccelMethod" "none"
+        Option      "Pageflip" "false"
       EndSection
     '';
 
