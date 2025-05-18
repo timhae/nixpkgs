@@ -38,11 +38,11 @@ import ./make-test-python.nix (
           # the policies and run tracee myself but doesn't work in the integration
           # test either with the automatic run or running the commands by hand
           # while it's searching.
-          "Test_EventFilters/comm:_event:_args:_trace_event_set_in_a_specific_policy_with_args_from_ls_command"
-          "Test_EventFilters/comm:_event:_trace_events_set_in_two_specific_policies_from_ls_and_uname_commands"
+          # "Test_EventFilters/comm:_event:_args:_trace_event_set_in_a_specific_policy_with_args_from_ls_command"
+          # "Test_EventFilters/comm:_event:_trace_events_set_in_two_specific_policies_from_ls_and_uname_commands"
 
           # worked at some point, seems to be flakey
-          "Test_EventFilters/pid:_event:_args:_trace_event_sched_switch_with_args_from_pid_0"
+          # "Test_EventFilters/pid:_event:_args:_trace_event_sched_switch_with_args_from_pid_0"
         ];
       in
       ''
@@ -65,7 +65,7 @@ import ./make-test-python.nix (
           # tests must be ran with 1 process
           print(machine.succeed(
             'mkdir /tmp/integration',
-            'cd /tmp/integration && export PATH="/tmp/testdir:$PATH" && integration.test -test.v -test.parallel 1 -test.skip="^${builtins.concatStringsSep "$|^" skippedTests}$"'
+            'cd /tmp/integration && export PATH="/tmp/testdir:$PATH" && integration.test -test.v -test.parallel 1'
           ))
       '';
   }

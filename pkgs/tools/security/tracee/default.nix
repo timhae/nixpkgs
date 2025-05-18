@@ -18,23 +18,19 @@
 
 buildGoModule rec {
   pname = "tracee";
-  version = "0.20.0";
+  version = "0.23.1";
 
   src = fetchFromGitHub {
     owner = "aquasecurity";
     repo = pname;
     # project has branches and tags of the same name
     tag = "v${version}";
-    hash = "sha256-OnOayDxisvDd802kDKGctaQc5LyoyFfdfvC+2JpRjHY=";
+    hash = "sha256-9uP0yoW+xRYv7wHuCfUMU8B2oTQjiSW5p/Ty76ni2wo=";
   };
-  vendorHash = "sha256-26sAKTJQ7Rf5KRlu7j5XiZVr6CkAC6fm60Pam7KH0uA=";
+  vendorHash = "sha256-2+4UN9WB6eGzedogy5dMvhHj1x5VeUUkDM0Z28wKQgM=";
 
   patches = [
-    ./use-our-libbpf.patch
-    # can not vendor dependencies with old pyroscope
-    # remove once https://github.com/aquasecurity/tracee/pull/3927
-    # makes it to a release
-    ./update-pyroscope.patch
+    ./0001-fix-do-not-build-libbpf.patch
   ];
 
   enableParallelBuilding = true;
@@ -42,8 +38,8 @@ buildGoModule rec {
   hardeningDisable = [ "stackprotector" ];
 
   nativeBuildInputs = [
-    pkg-config
     clang
+    pkg-config
   ];
   buildInputs = [
     elfutils
@@ -81,9 +77,9 @@ buildGoModule rec {
 
     mkdir -p $out/bin $lib/lib/tracee $share/share/tracee
 
-    mv ./dist/{tracee,signatures} $out/bin/
-    mv ./dist/tracee.bpf.o $lib/lib/tracee/
-    mv ./cmd/tracee-rules/templates $share/share/tracee/
+    cp ./dist/{tracee,signatures} $out/bin/
+    cp ./dist/tracee.bpf.o $lib/lib/tracee/
+    cp -r ./cmd/tracee-rules/templates $share/share/tracee/
 
     runHook postInstall
   '';
