@@ -2,6 +2,7 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+  nix-update-script,
 }:
 
 buildGoModule (finalAttrs: {
@@ -16,6 +17,12 @@ buildGoModule (finalAttrs: {
   };
 
   vendorHash = "sha256-Ke4oqPqD9shMBmbz1MvOMpm24Y4b+uU3Avx108M9NeM=";
+
+  doCheck = true;
+
+  passthru = {
+    updateScript = nix-update-script { };
+  };
 
   meta = {
     description = "Prometheus exporter for Aria2";
