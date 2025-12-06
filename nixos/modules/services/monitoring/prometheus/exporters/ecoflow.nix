@@ -117,7 +117,7 @@ in
     };
   };
   serviceOpts = {
-    environment = {
+    environment = { # TODO look here
       PROMETHEUS_ENABLED = "1";
       EXPORTER_TYPE = cfg.exporterType;
       DEBUG_ENABLED = cfg.debug;

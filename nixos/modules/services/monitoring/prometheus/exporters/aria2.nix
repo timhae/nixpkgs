@@ -36,7 +36,7 @@ in
 
   serviceOpts = {
     serviceConfig = lib.mkIf cfg.enable {
-      # environment = {
+      # environment = { // TODO: how to set
       #   ARIA2_EXPORTER_LISTEN_ADDRESS = cfg.listenAddress;
       #   ARIA2_URL = cfg.rpcUrl;
       #   ARIA2_RPC_SECRET = cfg.rpcSecret;
