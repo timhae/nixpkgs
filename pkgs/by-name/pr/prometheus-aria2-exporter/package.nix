@@ -3,6 +3,7 @@
   buildGoModule,
   fetchFromGitHub,
   nix-update-script,
+  nixosTests,
 }:
 
 buildGoModule (finalAttrs: {
@@ -21,6 +22,9 @@ buildGoModule (finalAttrs: {
   doCheck = true;
 
   passthru = {
+    tests = {
+      inherit (nixosTests.prometheus-exporters) aria2;
+    };
     updateScript = nix-update-script { };
   };
 

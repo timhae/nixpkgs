@@ -49,6 +49,7 @@ let
     (genAttrs
       [
         "apcupsd"
+        "aria2"
         "artifactory"
         "bind"
         "bird"
