@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchFromGitLab,
+  fetchFromGitHub,
   pkg-config,
   gtk3,
   wrapGAppsHook3,
@@ -11,11 +11,11 @@ stdenv.mkDerivation rec {
   pname = "zenmonitor";
   version = "unstable-2024-12-19";
 
-  src = fetchFromGitLab {
-    owner = "shdwchn10";
+  src = fetchFromGitHub {
+    owner = "detiam";
     repo = "zenmonitor3";
-    rev = "a09f0b25d33967fd32f3831304be049b008cdabf";
-    sha256 = "sha256-5N1Hhv2s0cv4Rujw4wFGHyIy7NyKAFThVvAo+xXqSyk=";
+    rev = "1e1ceec7353dc418578fe8ae56536bfee6adeca3";
+    sha256 = "sha256-q5BeLu0A2XJkJL8ptN4hj/iLhQmpb16QEhOuIhNzVaI=";
   };
 
   buildInputs = [ gtk3 ];
